@@ -50,3 +50,6 @@ SNSや匿名掲示板では使用目的が多岐に渡り、かえって人が�
 
 ## 画面遷移図
 　https://www.figma.com/file/RL7Dxn3pC6FwoH9WpR9ynS/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%2F%E3%83%97%E3%83%AD%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0
+
+## ER図
+　https://drive.google.com/file/d/1Pw6EX6JOAjWaDyE3aMLecvQwP6-l4NKQ/view?usp=sharing
