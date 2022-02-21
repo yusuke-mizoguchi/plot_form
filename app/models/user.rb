@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :novel
+
   authenticates_with_sorcery!
 
   validates :password, length: { minimum: 5, maximumn: 15 }, if: -> { new_record? || changes[:crypted_password] }
