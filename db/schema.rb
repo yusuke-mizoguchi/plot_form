@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_124501) do
+ActiveRecord::Schema.define(version: 2022_02_22_112819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "characters", force: :cascade do |t|
+    t.bigint "novel_id", null: false
+    t.text "character", null: false
+    t.string "character_role", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["novel_id"], name: "index_characters_on_novel_id"
+  end
 
   create_table "novels", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -25,6 +34,17 @@ ActiveRecord::Schema.define(version: 2022_02_21_124501) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_novels_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "novel_id", null: false
+    t.text "good_point", null: false
+    t.text "bad_point"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["novel_id"], name: "index_reviews_on_novel_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,5 +60,8 @@ ActiveRecord::Schema.define(version: 2022_02_21_124501) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "characters", "novels"
   add_foreign_key "novels", "users"
+  add_foreign_key "reviews", "novels"
+  add_foreign_key "reviews", "users"
 end
