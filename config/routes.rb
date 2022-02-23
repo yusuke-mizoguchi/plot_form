@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :novels do
     resources :review
+    resources :character
   end
 end
