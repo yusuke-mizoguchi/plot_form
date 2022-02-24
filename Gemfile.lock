@@ -135,8 +135,8 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.1)
     ffi (1.15.5)
-    font-awesome-rails (4.7.0.8)
-      railties (>= 3.2, < 8.0)
+    font-awesome-sass (5.15.1)
+      sassc (>= 1.11)
     fuubar (2.5.1)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
@@ -421,7 +421,7 @@ DEPENDENCIES
   enum_help
   factory_bot_rails
   faker
-  font-awesome-rails
+  font-awesome-sass
   fuubar
   gretel
   jbuilder (~> 2.7)
