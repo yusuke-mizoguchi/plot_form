@@ -30,7 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 #Assets
 gem 'bootstrap-sass'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'uglifier'
 
