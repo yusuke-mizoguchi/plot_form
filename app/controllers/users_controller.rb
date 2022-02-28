@@ -7,27 +7,22 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
-    if @user.save
+    @user = User.new(user_params)
+    if @user.save!
       redirect_to login_path
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def show; end
 
-  def show
-    @use = User.new
-  end
+  def edit; end
 
-  def edit
-  end
 
   def update
     if @user.update(user_params)
-      redirect_to login_path(user)
+      redirect_to user_path
     else
       render :new
     end
@@ -36,10 +31,10 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role, :profile)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :role, :profile)
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 end
