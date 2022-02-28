@@ -3,8 +3,8 @@ class NovelsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
 
   def index
-    @q = Novel.ransack(params[:q])
-    @novels = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+    #@q = Novel.ransack(params[:q])
+    #@novels = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -38,7 +38,7 @@ class NovelsController < ApplicationController
 
   def destroy
     @novel.destroy!
-    redirect_to novels_path,
+    redirect_to novels_path
   end
 
   private
