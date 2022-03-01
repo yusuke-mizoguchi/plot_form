@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :novel
-  has_many :review
+  has_many :novel, dependent: :destroy
+  has_many :review, dependent: :destroy
 
   authenticates_with_sorcery!
 
