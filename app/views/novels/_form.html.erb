@@ -1,0 +1,26 @@
+<%= form_with model: @novel_create_form, url: novels_path local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :genre %>
+  </div>
+  <div class="form-group">
+    <%= f.label :story_length %>
+  </div>
+  <div class="form-group">
+    <%= f.label :plot %>
+    <%= f.text_area :plot, class: 'form-control', rows: 20 %>
+  </div>
+  <div class="form-group">
+    <%= f.lavel :character_role %>
+    <%= f.text_field :character_role %>
+  </div>
+  <div class="form-group">
+    <%= f.lavel :character %>
+    <%= f.text_field :character %>
+  </div>
+
+  <%= f.submit '投稿する' class: 'btn btn-primary' %>
+<% end %>
