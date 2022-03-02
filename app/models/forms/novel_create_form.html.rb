@@ -1,15 +1,18 @@
 class NovelCreateForm
   include ActiveModel::Model
 
+  #novelのカラム
   attribute :title, :string
   attribute :genre, :enum
   attribute :story_length, :enum
   attribute :plot, :text
   attribute :image, :string
 
+  #characterのカラム
   attribute :character_role, :string
   attribute :character, :text
 
+  #novelのバリデーション、enum
   validates :title, length: { maximum: 50 }, uniqueness: true, presence: true
   validates :plot, length: { maximum: 5000 }, presence: true
 
@@ -17,9 +20,9 @@ class NovelCreateForm
                 reincarnation: 50, speace_fantasy: 60, horror: 70 }
   enum story_length: { long: 0, middle: 1, short: 2 }
 
+  #characterのバリデーション
   validates :character, length: { maximum: 2000 }
   validates :character_role, length: { maximum:10 }
-
 
   def save
     return false unless valid?
