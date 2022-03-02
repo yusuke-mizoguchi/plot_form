@@ -1,2 +1,8 @@
-<h1>Novels#new</h1>
-<p>Find me in app/views/novels/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t ('.title') %></h1>
+      <%= render 'form', { novel_create_form: @novel_create_form } %>
+    </div>
+  </div>
+</div>
