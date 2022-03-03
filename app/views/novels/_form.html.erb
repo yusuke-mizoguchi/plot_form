@@ -5,9 +5,11 @@
   </div>
   <div class="form-group">
     <%= f.label :genre %>
+    <%= f.select :genre, Novel.genres.keys.map {|k| [k, k]} %>
   </div>
   <div class="form-group">
     <%= f.label :story_length %>
+    <%= f.select :story_length, Novel.story_lengths.keys.map {|t| [t, t]} %>
   </div>
   <div class="form-group">
     <%= f.label :plot %>
@@ -21,6 +23,7 @@
     <%= f.label :character %>
     <%= f.text_field :character %>
   </div>
-
+  
+  
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>

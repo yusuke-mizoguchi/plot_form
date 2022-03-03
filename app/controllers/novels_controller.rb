@@ -21,9 +21,9 @@ class NovelsController < ApplicationController
   end
 
   def show
-    @novel_create_form = novel_create_form.find(params[:id])
+    @novel = Novel.find(params[:id])
     @review = Review.new
-    @reviews = @novel_create_form.reviews.includes(:user).order(created_at: :desc)
+    @reviews = @novel.reviews.includes(:user).order(created_at: :desc)
   end
 
   def edit; end
@@ -37,7 +37,7 @@ class NovelsController < ApplicationController
   end
 
   def destroy
-    @novel = current_user.novels.find(params[:id])
+    @novel = current_user.novel.find(params[:id])
     @novel.destroy!
     redirect_to novels_path
   end
@@ -45,10 +45,11 @@ class NovelsController < ApplicationController
   private
 
   def set_novel
-    @novel_create_form = current_user.novel_create_forms.find(params[:id])
+    @novel_create_form = current_user.novel.find(params[:id])
   end
 
   def novel_params
-    params.require(:novel_create_form).permit(:title, :genre, :story_length, :plot, :image, :character, :character_role)
+    params.require(:novel_create_form).permit(
+                  :title, :genre, :story_length, :plot, :image, :character, :character_role, :user_id)
   end
 end
