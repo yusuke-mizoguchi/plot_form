@@ -11,6 +11,7 @@ class NovelCreateForm
   def save
     return false unless valid?
     novel = Novel.new(title: title, genre: genre, story_length: story_length, plot: plot, image: image)
-    novel.character.new(character_role: character_role, character: character)
+    novel.save!
+    Character.create(character_role: character_role, character: character)
   end
 end
