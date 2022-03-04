@@ -30,7 +30,7 @@ class NovelsController < ApplicationController
 
   def update
     if @novel_create_form.update(novel_params)
-      redirect_to @novel
+      redirect_to novels_path
     else
       render :new
     end
