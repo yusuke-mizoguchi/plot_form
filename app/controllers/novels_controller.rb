@@ -23,7 +23,7 @@ class NovelsController < ApplicationController
   def show
     @novel = Novel.find(params[:id])
     @review = Review.new
-    @reviews = @novel.reviews.includes(:user).order(created_at: :desc)
+    @reviews = @novel.review.includes(:user).order(created_at: :desc)
   end
 
   def edit; end
@@ -50,6 +50,7 @@ class NovelsController < ApplicationController
 
   def novel_params
     params.require(:novel_create_form).permit(
-                  :title, :genre, :story_length, :plot, :image, :character, :character_role, :user_id)
+                  :title, :genre, :story_length, :plot, :image, :character, :character_role).merge(
+                  user_id: current_user.id)
   end
 end
