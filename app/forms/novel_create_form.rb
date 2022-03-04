@@ -12,17 +12,17 @@ class NovelCreateForm
   attribute :novel_id, :integer
 
 #attributeがtextに対応していない為切り分け。実装されたら統一
-  attr_accessor :plot, :character
+  attr_accessor :plot, :character_text
 
   #characterのバリデーション
-  validates :character, length: { maximum: 2000 }
+  validates :character_text, length: { maximum: 2000 }
   validates :character_role, length: { maximum:20 }
 
   def save
     return false unless valid?
     novel = Novel.new(title: title, genre: genre, story_length: story_length, plot: plot, image: image, user_id: user_id)
     novel.save
-    character = Character.new(character_role: character_role, character: character, novel_id: novel.id)
-    character.save
+    character = Character.new(character_role: character_role, character_text: character_text, novel_id: novel.id)
+    character.save!
   end
 end
