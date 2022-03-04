@@ -50,7 +50,7 @@ class NovelsController < ApplicationController
 
   def novel_params
     params.require(:novel_create_form).permit(
-                  :title, :genre, :story_length, :plot, :image, :character_role, :character).merge(
+                  :title, :genre, :story_length, :plot, :image, :character_role, :character_text).merge(
                   user_id: current_user.id)
   end
 end
