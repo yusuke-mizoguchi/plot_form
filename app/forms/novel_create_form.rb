@@ -23,6 +23,6 @@ class NovelCreateForm
     novel = Novel.new(title: title, genre: genre, story_length: story_length, plot: plot, image: image, user_id: user_id)
     novel.save
     character = Character.new(character_role: character_role, character: character, novel_id: novel.id)
-    character.save
+    character.save!
   end
 end
