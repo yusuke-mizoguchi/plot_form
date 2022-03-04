@@ -11,7 +11,7 @@ class NovelCreateForm
   attribute :user_id, :integer
   attribute :novel_id, :integer
 
-#attributeがtextに対応していない為切り分け。実装されたら変更
+#attributeがtextに対応していない為切り分け。実装されたら統一
   attr_accessor :plot, :character
 
   #characterのバリデーション
@@ -23,6 +23,6 @@ class NovelCreateForm
     novel = Novel.new(title: title, genre: genre, story_length: story_length, plot: plot, image: image, user_id: user_id)
     novel.save
     character = Character.new(character_role: character_role, character: character, novel_id: novel.id)
-    character.save!
+    character.save
   end
 end
