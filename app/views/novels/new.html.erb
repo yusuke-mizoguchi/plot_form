@@ -19,6 +19,9 @@
             <%= f.label :plot %>
             <%= f.text_area :plot, class: 'form-control', rows: 20 %>
           </div>
+          <!-- characterは、後ほどレンダーかeachで入れ替える
+          現状だと編集時にActiveRecord_Associations_CollectionProxyと、
+          character全体としてのデータで表示されるため -->
           <div class="form-group">
             <%= f.label :character_role %>
             <%= f.text_field :character_role %>
