@@ -1,2 +1,19 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <%= form_with model: @review, url: novels_path, local: true do |f| %>
+          <div class="form-group">
+            <%= f.label :good_point %>
+            <%= f.text_field :good_point, class: 'form-control', rows: 5 %>
+          </div>
+          <div class="form-group">
+            <%= f.label :bad_point %>
+            <%= f.text_field :bad_point, class: 'form-control', rows: 5 %>
+          </div>
+
+
+          <%= f.submit class: 'btn btn-primary' %>
+        <% end %>
+    </div>
+  </div>
+</div>
