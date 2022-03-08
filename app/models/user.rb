@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :novel, dependent: :destroy
-  has_many :review, dependent: :destroy
+  has_many :novels, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   authenticates_with_sorcery!
 
@@ -14,4 +14,8 @@ class User < ApplicationRecord
   
 
   enum role: { reader: 0,  writer: 10, guest: 20}
+
+  def own?(object)
+    id == object.user_id
+  end
 end

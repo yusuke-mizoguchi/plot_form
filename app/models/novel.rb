@@ -1,7 +1,7 @@
 class Novel < ApplicationRecord
   belongs_to :user
-  has_many :character, dependent: :destroy
-  has_many :review, dependent: :destroy
+  has_many :characters, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :title, length: { maximum: 50 }, uniqueness: true, presence: true
   validates :plot, length: { maximum: 5000 }, presence: true
