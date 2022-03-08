@@ -36,6 +36,7 @@ gem 'uglifier'
 
 #UI/UX
 gem 'rails-i18n'
+gem 'ransack'
 
 # Authentication
 gem 'sorcery'
