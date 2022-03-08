@@ -23,7 +23,7 @@ class NovelsController < ApplicationController
   def show
     @novel = Novel.find(params[:id])
     @review = Review.new
-    @reviews = @novel.review.includes(:user).order(created_at: :desc)
+    @reviews = @novel.reviews.includes(:user).order(created_at: :desc)
   end
 
   def edit; end

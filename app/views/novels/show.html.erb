@@ -1,2 +1,29 @@
-<h1>Novels#show</h1>
-<p>Find me in app/views/novels/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= 'プロット詳細' %></h1>
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-9'>
+              <h3 class="d-inline"><%= @novel.title %></h3>
+              <ul class="list-inline">
+                <li class="list-inline-item">作者 <%= @novel.user.name %></li>
+                <li class="list-inline-item"><%= l @novel.created_at, format: :long %></li>
+              </ul>
+              <ul class="list-inline">
+                <li class="list-inline-item">ジャンル <%= @novel.genre %></li>
+                <li class="list-inline-item">分類 <%= @novel.story_length %></li>
+              </ul>
+            </div>
+          </div>
+          <p><%= simple_format(@novel.plot) %></p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- レビューフォーム -->
+
+  <!-- レビューエリア -->
+</div>
