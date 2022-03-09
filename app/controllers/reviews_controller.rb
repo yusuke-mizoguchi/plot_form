@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    review = current_user.reviews.build(review_params)
+    @review = current_user.reviews.build(review_params)
     @review.save
   end
 
@@ -28,6 +28,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:body).merge(novel_id: params[:novel_id])
+    params.require(:review).permit(:good_point, :bad_point).merge(novel_id: params[:novel_id])
   end
 end

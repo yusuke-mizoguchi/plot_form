@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create edit update show ]
   resources :novels do
-    resources :review, only: %i[create edit update destroy], shallow: true
-    resources :character, only: %i[create edit update destroy], shallow: true
+    resources :reviews, only: %i[create edit update destroy], shallow: true
+    resources :characters, only: %i[create edit update destroy], shallow: true
   end
 end

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
-        <%= form_with model: @review, url: novels_path, local: true do |f| %>
+        <%= form_with model: [novel, review], local: true do |f| %>
           <div class="form-group">
             <%= f.label :good_point %>
             <%= f.text_field :good_point, class: 'form-control', rows: 5 %>
