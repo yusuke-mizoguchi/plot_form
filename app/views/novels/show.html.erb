@@ -19,8 +19,8 @@
           </div>
           <p><%= simple_format(@novel.plot) %></p>
           <% @novel.characters.each do |c| %>
-          <p><%= simple_format(c.character_role) %></p>
-          <p><%= simple_format(c.character_text) %></p>
+            <p><%= simple_format(c.character_role) %></p>
+            <p><%= simple_format(c.character_text) %></p>
           <% end %>
         </div>
       </article>
@@ -28,6 +28,8 @@
   </div>
 
   <!-- レビューフォーム -->
+  <%= render 'reviews/form', { novel: @novel, review: @review } %>
 
   <!-- レビューエリア -->
+  <%= render 'reviews/reviews', { reviews: @reviews } %>
 </div>
