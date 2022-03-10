@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
   skip_before_action :require_login, only: [:new, :create]
 
   def new
@@ -15,7 +15,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @novel_list = @user.novels.order(created_at: :desc)
+    @novels = Kaminari.paginate_array(@novel_list).page(params[:page]).per(5)
+    @review_list = @user.reviews.order(created_at: :desc)
+    @reviews = Kaminari.paginate_array(@review_list).page(params[:page]).per(10)
+  end
 
   def edit; end
 

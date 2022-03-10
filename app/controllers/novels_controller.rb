@@ -37,7 +37,7 @@ class NovelsController < ApplicationController
   end
 
   def destroy
-    @novel = current_user.novel.find(params[:id])
+    @novel = current_user.novels.find(params[:id])
     @novel.destroy!
     redirect_to novels_path
   end
@@ -45,7 +45,7 @@ class NovelsController < ApplicationController
   private
 
   def set_novel
-    @novel_create_form = current_user.novel.find(params[:id])
+    @novel_create_form = current_user.novels.find(params[:id])
   end
 
   def novel_params

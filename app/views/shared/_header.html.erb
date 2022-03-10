@@ -19,7 +19,7 @@
             <%= current_user.name %>
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <%= button_to 'マイページ', novels_path, class: 'dropdown-item' %>
+            <%= link_to 'マイページ', user_path(current_user.id), class: 'dropdown-item' %>
             <%= button_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
           </div>
         </li>
