@@ -1,0 +1,14 @@
+<% @novels.each do |novel| %>
+  <table class="table">
+    <tr>
+      <td><%= link_to novel.user.name, user_path(novel.user.id) %>
+    </tr>
+     <tr>
+      <td><%= link_to novel.title, novel_path(novel.id) %></td>
+    </tr>
+    <tr>
+      <td><%= novel.genre %>
+      <%= novel.story_length %></td>
+    </tr>
+  </table>
+<% end %>

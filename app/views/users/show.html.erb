@@ -18,42 +18,20 @@
         </tr>
       </table>
     </div>
-    <ul class="col-md-5 offset-md-1">
-      <h2 class="float-left mb-5"><%= '投稿した作品' %></h2>
-      <div class="scroll-list jscroll">
-        <% @novels.each do |novel| %>
-          <table class="table">
-            <tr>
-              <td><%= link_to novel.title, novel_path(novel.id) %></td>
-            </tr>
-            <tr>
-              <td><%= novel.genre %></td>
-            </tr>
-            <tr>
-              <td><%= novel.story_length %></td>
-            </tr>
-          </table>
-        <% end %>
-        <%= paginate @novels %>
-      </div>
-    </ul>
-    <ul class="col-md-5 offset-md-1">
-      <h2 class="float-left mb-5"><%= '批評した作品' %></h2>
-      <div class="scroll-list jscroll">
-        <% @reviews.each do |review| %>
-          <table class="table">
-            <tr>
-              <td><%= link_to review.novel.title, novel_path(review.novel.id) %></td>
-            </tr>
-            <tr>
-              <td><%= review.novel.genre %></td>
-            </tr>
-            <tr>
-              <td><%= review.novel.story_length %></td>
-            </tr>
-          </table>
-          <% end %>
-        <%= paginate @reviews %>
+    <ul class="col-md-10 offset-md-1">
+      <div class="tab-wrap">
+        <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
+        <label class="tab-label" for="TAB-01">投稿した作品</label>
+        <div class="tab-content">
+          <%= render 'users/show_novels' %>
+          <%= paginate @novels, id: "js-show-novels", remote: true %>
+        </div>
+        <input id="TAB-02" type="radio" name="TAB" class="tab-switch" checked="checked" />
+        <label class="tab-label" for="TAB-02">批評した作品</label>
+        <div class="tab-content">
+          <%= render 'users/show_reviews' %>
+          <%= paginate @reviews, id: "js-show-reviews", remote: true %>
+        </div>
       </div>
     </ul>
   </div>

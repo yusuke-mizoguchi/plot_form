@@ -17,9 +17,14 @@ class UsersController < ApplicationController
 
   def show
     @novel_list = @user.novels.order(created_at: :desc)
-    @novels = Kaminari.paginate_array(@novel_list).page(params[:page]).per(5)
+    @novels = Kaminari.paginate_array(@novel_list).page(params[:page]).per(4)
     @review_list = @user.reviews.order(created_at: :desc)
-    @reviews = Kaminari.paginate_array(@review_list).page(params[:page]).per(10)
+    @reviews = Kaminari.paginate_array(@review_list).page(params[:page]).per(4)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit; end

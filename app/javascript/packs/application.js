@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 require('jquery')
+require('jquery-ujs')
 
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
@@ -11,17 +12,6 @@ import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "bootstrap";
 import '../stylesheets/application';
-
-
-$(window).on('scroll', function() {
-    scrollHeight = $(document).height();
-    scrollPosition = $(window).height() + $(window).scrollTop();
-    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
-          $('.jscroll').jscroll({
-            contentSelector: '.scroll-list',
-          });
-    }
-});
 
 Rails.start()
 Turbolinks.start()
