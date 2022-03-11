@@ -1,7 +1,7 @@
-<% if (novel.release != "3") && current_user&.role == "writer" %>
+<% if (novel.release != "draft") && current_user&.role == "writer" %>
   <%= render 'novel_date', {novel: novel} %>
-<% elsif (novel.release == "0" || novel.release == "1") && current_user&.role == "reader" %>
+<% elsif (novel.release == "release" || novel.release == "reader") && current_user&.role == "reader" %>
   <%= render 'novel_date', {novel: novel} %>
-<% elsif novel.release == "0" %>
+<% elsif novel.release == "release" %>
   <%= render 'novel_date', {novel: novel} %>
 <% end %>
