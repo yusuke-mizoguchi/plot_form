@@ -10,5 +10,10 @@
     <td><%= user_creates.genre %>
     <%= user_creates.story_length %></td>
   </tr>
+    <% if user_creates.user.id == current_user.id %>
+    <tr>
+      <td><%= user_creates.release %></td>
+    </tr>
+  <% end %>
 </table>
 </div>
