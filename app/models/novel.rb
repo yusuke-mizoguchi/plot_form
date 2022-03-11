@@ -9,4 +9,5 @@ class Novel < ApplicationRecord
   enum genre: { high_fantasy: 0, low_fantasy: 10, classic: 20, love: 30, comedy: 40, mystery:50,
     reincarnation: 50, speace_fantasy: 60, horror: 70 }
   enum story_length: { long: 0, middle: 1, short: 2 }
+  enum release: { release: 0, reader: 1, writer: 2, draft: 3 }
 end

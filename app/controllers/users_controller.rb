@@ -16,6 +16,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @q = Novel.ransack(params[:q])
+    @user_creates = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+
     @user = User.find(params[:id])
     @novel_list = @user.novels.order(created_at: :desc)
     @novels = Kaminari.paginate_array(@novel_list).page(params[:page]).per(4)

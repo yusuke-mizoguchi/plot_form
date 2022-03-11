@@ -7,7 +7,7 @@ class NovelCreateForm
   attribute :genre, :integer
   attribute :story_length, :integer
   attribute :image, :string
-  attribute :release, :string
+  attribute :release, :integer
   attribute :character_role, :string
   attribute :user_id, :integer
   attribute :novel_id, :integer
