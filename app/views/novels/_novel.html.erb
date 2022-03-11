@@ -1,4 +1,3 @@
-
 <% if (novel.release != "3") && current_user&.role == "writer" %>
   <%= render 'novel_date', {novel: novel} %>
 <% elsif (novel.release == "0" || novel.release == "1") && current_user&.role == "reader" %>
