@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 #Assets
+gem 'bootstrap'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
